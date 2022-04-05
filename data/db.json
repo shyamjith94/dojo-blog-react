@@ -1,0 +1,16 @@
+{
+    "blog": [
+        {
+            "title": "my first blog",
+            "body": "we talk about how the react works in rest api",
+            "author": "shyam",
+            "id": 1
+        },
+        {
+            "title": "my second blog",
+            "body": "we talk about rest api more about something",
+            "author": "shyamjith",
+            "id": 2
+        }
+    ]
+}
