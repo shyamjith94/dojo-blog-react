@@ -3,8 +3,7 @@ import BlogList from "./BlogList";
 
 const Home = () => {
     const [blogs, setBlogs] = useState(null);
-
-
+    const [isPending, setIsPending] = useState(true);
 
     useEffect( () => {
         // fetch data ans set to blog array
@@ -12,14 +11,19 @@ const Home = () => {
             res => {
                 return res.json()
             }
-        ).then(data => { setBlogs(data) })
+        ).then(data => {
+            setBlogs(data)
+            setIsPending(false)
+        })
     }, []);
 
 
     return (
         <div className="home">
-             {/* if blogs && evaluvate true then only <BlogList blogs={ blogs } title="All Blogs!" handleDelete = { handleDelete }/> execute */}
-            {blogs && <BlogList blogs={ blogs } title="All Blogs!"/>}
+            {/* losding message */}
+            { isPending && <div>Loading...</div> }
+            {/* if blogs && evaluvate true then only <BlogList blogs={ blogs } title="All Blogs!" handleDelete = { handleDelete }/> execute */}
+            { blogs && <BlogList blogs={ blogs } title="All Blogs!"/> }
             
         </div>
       );
