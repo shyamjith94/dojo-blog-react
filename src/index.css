@@ -110,6 +110,7 @@
   border-radius: 8px;
   cursor: pointer;
 }
+/* blog delete button */
 
 .blog-details article button {
   background-color: #f1356d;
@@ -119,4 +120,17 @@
   border-radius: 8px;
   cursor: pointer;
 
+}
+
+/* not found page */
+
+.not-found h2 {
+  font-size: 20px;
+  color: #f1356d;
+  margin-bottom: 10px;
+}
+.not-found p, a {
+  font-size: 20px;
+  margin-bottom: 10px;
+  text-decoration: none;
 }
