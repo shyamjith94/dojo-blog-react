@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
 import BlogList from "./BlogList";
 import useFetch from "./userfetch";
 
 const Home = () => {
-    const url = 'http://localhost:8000/blog';
+    const url = 'http://localhost:8000/blogs';
     const {data: blogs, isPending, errors} = useFetch(url)
 
     return (
