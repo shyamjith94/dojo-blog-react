@@ -1,20 +1,23 @@
-import { type } from "@testing-library/user-event/dist/type";
-import { hasFormSubmit } from "@testing-library/user-event/dist/utils";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 const Create = () => {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
     const [author, setAuthor] = useState('shyam');
-    const [isPending, setIsPending] = useState(false)
+    const [isPending, setIsPending] = useState(false);
+
+    // redirect page after submit
+    const history = useHistory();
+
 
     
     const handleSubmit = (e) =>{
         e.preventDefault();
         const url = 'http://localhost:8000/blogs';
-        const blog = { title, body, author }
+        const blog = { title, body, author };
 
-        setIsPending(true)
+        setIsPending(true);
         
         fetch(url, {
             method: 'POST',
@@ -22,7 +25,9 @@ const Create = () => {
             body: JSON.stringify(blog)
         }).then( () => {
             console.log("done");
-            setIsPending(false)
+            setIsPending(false);
+            // go back homepage
+            history.push('/');
         })
     }
 
